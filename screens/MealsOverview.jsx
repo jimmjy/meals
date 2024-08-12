@@ -14,16 +14,13 @@ const MealsOverview = ({ route, navigation }) => {
     return mealItem.categoryIds.indexOf(catId) >= 0;
   });
 
-  console.log({ displayMeals });
   useLayoutEffect(() => {
     const { title } = CATEGORIES.find((category) => category.id === catId);
-    console.log({ catId, title });
 
     navigation.setOptions({ title });
   }, [catId, navigation]);
 
   const onPressRecipe = (mealId) => {
-    console.log({ mealId });
     navigation.navigate('MealDetails', { mealId });
   };
 
