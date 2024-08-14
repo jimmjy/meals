@@ -20,10 +20,6 @@ const MealsOverview = ({ route, navigation }) => {
     navigation.setOptions({ title });
   }, [catId, navigation]);
 
-  const onPressRecipe = (mealId) => {
-    navigation.navigate('MealDetails', { mealId });
-  };
-
   const renderMealItem = ({
     item: { title, imageUrl, duration, complexity, affordability, id },
   }) => {
@@ -34,7 +30,7 @@ const MealsOverview = ({ route, navigation }) => {
         duration={duration}
         complexity={complexity}
         affordability={affordability}
-        onPressRecipe={() => onPressRecipe(id)}
+        mealId={id}
       />
     );
   };

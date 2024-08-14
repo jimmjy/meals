@@ -3,8 +3,15 @@ import React from 'react';
 
 // components
 import MealDetails from './MealDetails';
+import { useNavigation } from '@react-navigation/native';
 
-const MealItem = ({ title, imageUrl, duration, complexity, affordability, onPressRecipe }) => {
+const MealItem = ({ title, imageUrl, duration, complexity, affordability, mealId }) => {
+  const { navigate } = useNavigation();
+
+  const onPressRecipe = () => {
+    navigate('MealDetails', { mealId });
+  };
+
   return (
     <View style={styles.mealItem}>
       <Pressable
